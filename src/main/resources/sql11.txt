@@ -1,0 +1,44 @@
+Для удобства. Захешированный пароль - 123
+
+
+
+CREATE SCHEMA homework11
+CREATE TABLE homework11.products (id serial, title varchar(100), price int, PRIMARY KEY (id));
+
+
+INSERT INTO homework11.products (title, price)  VALUES ('product1', 50);
+INSERT INTO homework11.products (title, price)  VALUES ('product2', 20);
+INSERT INTO homework11.products (title, price)  VALUES ('product3', 50);
+INSERT INTO homework11.products (title, price)  VALUES ('product4', 150);
+INSERT INTO homework11.products (title, price)  VALUES ('product5', 151);
+INSERT INTO homework11.products (title, price)  VALUES ('product6', 152);
+INSERT INTO homework11.products (title, price)  VALUES ('product7', 1503);
+INSERT INTO homework11.products (title, price)  VALUES ('product8', 154);
+INSERT INTO homework11.products (title, price)  VALUES ('product9', 155);
+INSERT INTO homework11.products (title, price)  VALUES ('product10', 156);
+
+CREATE TABLE homework11.roles (id serial, name varchar(100), PRIMARY KEY (id));
+
+INSERT INTO homework11.roles (name) VALUES ('ROLE_ADMIN');
+INSERT INTO homework11.roles (name) VALUES ('ROLE_MANAGER');
+INSERT INTO homework11.roles (name) VALUES ('ROLE_USER');
+
+CREATE TABLE homework11.users (id serial, username varchar(100) NOT NULL, password varchar(250) NOT NULL, PRIMARY KEY (id));
+
+INSERT INTO homework11.users (username , password ) VALUES ('User1', '$2a$12$.IOTNIGcui3eZi38AOVK3e3KogchNeYiV91pq.Vwt1aB.12lPcY9a');
+INSERT INTO homework11.users (username , password ) VALUES ('User2', '$2a$12$.IOTNIGcui3eZi38AOVK3e3KogchNeYiV91pq.Vwt1aB.12lPcY9a');
+INSERT INTO homework11.users (username , password ) VALUES ('User3', '$2a$12$.IOTNIGcui3eZi38AOVK3e3KogchNeYiV91pq.Vwt1aB.12lPcY9a');
+
+CREATE TABLE homework11.user_roles (id serial, user_id bigint NOT NULL REFERENCES homework11.users(id), role_id bigint NOT NULL REFERENCES homework11.roles(id) , PRIMARY KEY (id));
+
+INSERT INTO homework11.user_roles (user_id, role_id) VALUES (1, 1);
+INSERT INTO homework11.user_roles (user_id, role_id) VALUES (2, 2);
+INSERT INTO homework11.user_roles (user_id, role_id) VALUES (3, 3);
+
+
+
+
+
+
+
+
